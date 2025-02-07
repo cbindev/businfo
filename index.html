@@ -3,40 +3,67 @@
   <head>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="y9fxTHaNSwDjnxXHHz+Lyg" async></script>
     <title>Bus Feedback at RIT</title>
+    <style>
+      /* Hide the browser scrollbar */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden; /* No scroll on the parent page */
+        font-family: sans-serif;
+      }
+      .message {
+        padding: 1em;
+        /* This message will appear, but if we use height=100% for the iframe,
+           the message might not stay visible unless we adjust. */
+      }
+      iframe {
+        position: absolute;
+        top: 50px; /* leave room for the message */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 50px);
+        border: none;
+      }
+    </style>
   </head>
   <body>
-    <p>This is a beta version of the form, please contact <a href="mailto:urbanism@rit.edu">urbanism@rit.edu</a> if you have issues!</p>
-    <iframe 
-      data-tally-src="https://tally.so/embed/mJXYN7?alignLeft=1&hideTitle=1&transparentBackground=1" 
-      loading="lazy" 
-      width="100%" 
-      height="808" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0" 
+    <div class="message">
+      This is a beta version of the form, please contact
+      <a href="mailto:urbanism@rit.edu">urbanism@rit.edu</a> if you have issues!
+    </div>
+    
+    <!-- The iframe scrolls internally -->
+    <iframe
+      data-tally-src="https://tally.so/embed/mJXYN7?alignLeft=1&hideTitle=1&transparentBackground=1"
+      loading="lazy"
       title="Bus Feedback at RIT"
     ></iframe>
+    
     <script>
-      var d=document,
-          w="https://tally.so/widgets/embed.js",
-          v=function(){
-            if(typeof Tally!=="undefined"){ 
-              Tally.loadEmbeds(); 
-            } else {
-              d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){
-                e.src=e.dataset.tallySrc;
-              });
-            }
-          };
-      if(typeof Tally!=="undefined") {
-        v();
-      } else if(d.querySelector('script[src="'+w+'"]')===null) {
-        var s=d.createElement("script");
-        s.src=w;
-        s.onload=v;
-        s.onerror=v;
-        d.body.appendChild(s);
-      }
+      (function() {
+        var d = document,
+            w = "https://tally.so/widgets/embed.js",
+            v = function() {
+              if (typeof Tally !== "undefined") {
+                Tally.loadEmbeds();
+              } else {
+                d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
+                  e.src = e.dataset.tallySrc;
+                });
+              }
+            };
+        
+        if (typeof Tally !== "undefined") {
+          v();
+        } else if (!d.querySelector('script[src="' + w + '"]')) {
+          var s = d.createElement("script");
+          s.src = w;
+          s.onload = v;
+          s.onerror = v;
+          d.body.appendChild(s);
+        }
+      })();
     </script>
   </body>
 </html>
