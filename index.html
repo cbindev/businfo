@@ -2,24 +2,35 @@
 <html>
   <head>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="y9fxTHaNSwDjnxXHHz+Lyg" async></script>
-    <title>Bus Feedback at RIT</title>
-    <!-- Ensure responsive scaling on mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <!-- Prevent zooming and ensure proper scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Bus Feedback Form</title>
+    <!-- Tally embed script -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
     <style>
+      /* Reset margins and set a default font */
       html, body {
         margin: 0;
         padding: 0;
+        height: 100%;
+        font-family: sans-serif;
       }
+      /* Use flex layout to place the contact message above the iframe */
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      /* Style for the contact message */
       .message {
-        max-width: 600px;         /* optional, to keep text in a nice narrow column */
-        margin: 0 auto;           /* center the text column if max-width is used */
         padding: 1rem;
-        font-family: sans-serif;  /* optional styling */
-        white-space: normal;      /* make sure text wraps */
-        word-wrap: break-word;    /* breaks overly long words/URLs if needed */
+        text-align: center;
+        background: #f9f9f9;
+        border-bottom: 1px solid #ccc;
       }
+      /* The iframe fills the remaining space */
       iframe {
-        display: block;
+        flex: 1;
         width: 100%;
         border: none;
       }
@@ -27,42 +38,14 @@
   </head>
   <body>
     <div class="message">
-      <p>This is a beta version of the form, please contact
+      <p>
+        This is a beta version of the form, please contact
         <a href="mailto:urbanism@rit.edu">urbanism@rit.edu</a> if you have issues!
       </p>
     </div>
-
-    <!-- Tally iframe -->
     <iframe
-      data-tally-src="https://tally.so/embed/mJXYN7?alignLeft=1&hideTitle=1&transparentBackground=1"
-      loading="lazy"
-      title="Bus Feedback at RIT"
-    ></iframe>
-
-    <script>
-      (function() {
-        var d = document,
-            w = "https://tally.so/widgets/embed.js",
-            v = function() {
-              if (typeof Tally !== "undefined") {
-                Tally.loadEmbeds();
-              } else {
-                d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
-                  e.src = e.dataset.tallySrc;
-                });
-              }
-            };
-
-        if (typeof Tally !== "undefined") {
-          v();
-        } else if (!d.querySelector('script[src="' + w + '"]')) {
-          var s = d.createElement("script");
-          s.src = w;
-          s.onload = v;
-          s.onerror = v;
-          d.body.appendChild(s);
-        }
-      })();
-    </script>
+      data-tally-src="https://tally.so/r/mJXYN7?transparentBackground=1"
+      title="Bus Feedback Form">
+    </iframe>
   </body>
 </html>
