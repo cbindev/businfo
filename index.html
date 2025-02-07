@@ -3,43 +3,42 @@
   <head>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="y9fxTHaNSwDjnxXHHz+Lyg" async></script>
     <title>Bus Feedback at RIT</title>
+    <!-- Ensure responsive scaling on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      /* Hide the browser scrollbar */
       html, body {
         margin: 0;
         padding: 0;
-        height: 100%;
-        overflow: hidden; /* No scroll on the parent page */
-        font-family: sans-serif;
       }
       .message {
-        padding: 1em;
-        /* This message will appear, but if we use height=100% for the iframe,
-           the message might not stay visible unless we adjust. */
+        max-width: 600px;         /* optional, to keep text in a nice narrow column */
+        margin: 0 auto;           /* center the text column if max-width is used */
+        padding: 1rem;
+        font-family: sans-serif;  /* optional styling */
+        white-space: normal;      /* make sure text wraps */
+        word-wrap: break-word;    /* breaks overly long words/URLs if needed */
       }
       iframe {
-        position: absolute;
-        top: 50px; /* leave room for the message */
-        left: 0;
+        display: block;
         width: 100%;
-        height: calc(100% - 50px);
         border: none;
       }
     </style>
   </head>
   <body>
     <div class="message">
-      This is a beta version of the form, please contact
-      <a href="mailto:urbanism@rit.edu">urbanism@rit.edu</a> if you have issues!
+      <p>This is a beta version of the form, please contact
+        <a href="mailto:urbanism@rit.edu">urbanism@rit.edu</a> if you have issues!
+      </p>
     </div>
-    
-    <!-- The iframe scrolls internally -->
+
+    <!-- Tally iframe -->
     <iframe
       data-tally-src="https://tally.so/embed/mJXYN7?alignLeft=1&hideTitle=1&transparentBackground=1"
       loading="lazy"
       title="Bus Feedback at RIT"
     ></iframe>
-    
+
     <script>
       (function() {
         var d = document,
@@ -53,7 +52,7 @@
                 });
               }
             };
-        
+
         if (typeof Tally !== "undefined") {
           v();
         } else if (!d.querySelector('script[src="' + w + '"]')) {
