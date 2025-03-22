@@ -10,10 +10,19 @@ First, to protect yourself against future planned changes to the main ritbus.inf
 
 Second, if your project already has access to information about RIT's official bus route numbers, route names, and/or stop names, you can include additional URL parameters to help pre-fill the first page of the form to make things easy for the people using this form through your site!
 
-The available URL parameters are:
+The form is set up as follows:
+Page 1 collects the user's intent (report issue vs provide positive or constructive feedback) along with the route and stop
+
+If any of the following are provided they are pre-filled:
 - `category` - This specifies which type of report this is, matching the text on the buttons for this form field, for example: `category=Report%20a%20delay%20or%20small%20issue`
 - `route` - This field will pre-fill the route value in the form. It is expected to be of the format `ROUTE_NUMBER - ROUTE_NAME`, for exampme: `route=1%20-%20Off%20Campus%20Express`
 - `stop` - This field will pre-fill the stop value in the form. Example: `stop=Gleason%20Circle`
+
+If `stop` is provided it hides the question from view based on the assumption that that data is provided correctly (the original intent being to prefill on QR codes).
+
+`route` will not be hidden if filled because "Not Riding" and "Other" have to be there for people not currently on the network or on a weird deviation/combination
+
+page 3, the complaint section, prefills issue if it is provided
 
 These parameters can be combined together if desired to fill in all three values.
 
