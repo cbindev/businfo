@@ -8,7 +8,7 @@ If you would like to embed this form in a project of yours, there are some advan
 
 First, to protect yourself against future planned changes to the main ritbus.info site, it is recommended that embedding and linking that is intended to point to the reporting form be directed to the https://ritbus.info/report page
 
-Second, if your project already has access to information about RIT's official bus route numbers, route names, and/or stop names, you can include additional URL parameters to help pre-fill the first page of the form to make things easy for the people using this form through your site!
+Second, if your project already has access to information about RIT's official bus route numbers, route names, and/or stop names, you can include additional URL parameters to help pre-fill the first page of the form to make things easy for the people using this form through your site! For more information on how this works, see https://tally.so/help/hidden-fields
 
 The form is set up as follows:
 Page 1 collects the user's intent (report issue vs provide positive or constructive feedback) along with the route and stop
