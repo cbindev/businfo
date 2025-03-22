@@ -2,6 +2,35 @@
 
 This is a simple static page intended to provide RIT bus system users with information and collect their feedback.
 
+## Advanced Usage and embedding
+
+If you would like to embed this form in a project of yours, there are some advanced features that you may find useful to take advantage of.
+
+First, to protect yourself against future planned changes to the main ritbus.info site, it is recommended that embedding and linking that is intended to point to the reporting form be directed to the https://ritbus.info/report page
+
+Second, if your project already has access to information about RIT's official bus route numbers, route names, and/or stop names, you can include additional URL parameters to help pre-fill the first page of the form to make things easy for the people using this form through your site! For more information on how this works, see https://tally.so/help/hidden-fields
+
+The form is set up as follows:
+Page 1 collects the user's intent (report issue vs provide positive or constructive feedback) along with the route and stop
+
+If any of the following are provided they are pre-filled:
+- `category` - This specifies which type of report this is, matching the text on the buttons for this form field, for example: `category=Report%20a%20delay%20or%20small%20issue`
+- `route` - This field will pre-fill the route value in the form. It is expected to be of the format `ROUTE_NUMBER - ROUTE_NAME`, for exampme: `route=1%20-%20Off%20Campus%20Express`
+- `stop` - This field will pre-fill the stop value in the form. Example: `stop=Gleason%20Circle`
+
+If `stop` is provided it hides the question from view based on the assumption that that data is provided correctly (the original intent being to prefill on QR codes).
+
+`route` will not be hidden if filled because "Not Riding" and "Other" have to be there for people not currently on the network or on a weird deviation/combination
+
+page 3, the complaint section, prefills issue if it is provided
+
+These parameters can be combined together if desired to fill in all three values.
+
+If you have integrated this form into a project of yours, let us know by filing a pull request to update this README to link to your project! We would love to learn about all the cool ways in which our form is being shared with students!
+
+## Projects embedding this form
+- https://rit-bus.app
+
 ## Future Plans
 The initial scope of this website is to collect feedback using a Tally form system. In the future and as part of the club's Imagine RIT Project, the following information might or might not be provided:
 
